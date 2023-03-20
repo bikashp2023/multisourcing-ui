@@ -7,6 +7,7 @@ import {
 } from '@katoid/angular-grid-layout';
 import { debounceTime, fromEvent, merge, Subscription } from 'rxjs';
 import { DonutChartComponent } from 'src/app/components/donut-chart/donut-chart.component';
+import { NavigationService } from 'src/app/services/navigation.service';
 import { WidgetCommunicationService } from 'src/app/services/widget-communication.service';
 import { ktdArrayRemoveItem } from 'src/app/utils/utils';
 
@@ -93,7 +94,8 @@ export class VisualizationComponent {
 
   constructor(
     @Inject(DOCUMENT) public document: Document,
-    private widgetService: WidgetCommunicationService
+    private widgetService: WidgetCommunicationService,
+    private navService: NavigationService
   ) {}
 
   ngOnInit() {
@@ -190,5 +192,9 @@ export class VisualizationComponent {
 
   ngOnDestroy() {
     this.resizeSubscription.unsubscribe();
+  }
+
+  toggleSideNav() {
+    this.navService.setShowNav(true);
   }
 }

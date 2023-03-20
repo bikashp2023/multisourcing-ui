@@ -1,7 +1,10 @@
-<!-- <app-donut-chart></app-donut-chart> -->
-
+<app-side-nav [sidenavTemplateRef]="navContent" [direction]="'right'" [navWidth]="400" [duration]="0.5" ></app-side-nav>
 <div class="container">
-  <!-- <app-header></app-header> -->
+  <div class="header-menu">
+    <button (click)="toggleSideNav()" mat-stroked-button color="primary">
+      <span class="material-icons"> add</span> New widget
+    </button>
+  </div> 
   <ktd-grid [cols]="cols" [rowHeight]="rowHeight" [gap]="20" [layout]="layout" (layoutUpdated)="onLayoutUpdated($event)"
     (gridItemResize)="onResize($event)" (dragStarted)="resizeEnded($event)" (resizeEnded)="resizeEnded($event)">
     <ktd-grid-item *ngFor="let item of layout; trackBy:trackById" [id]="item.id">
@@ -18,6 +21,6 @@
 </div>
 
 <ng-template #navContent>
-  <!-- <app-side-nav-content></app-side-nav-content> -->
+  <app-side-nav-content></app-side-nav-content>
   <!-- <h1>bikash</h1> -->
 </ng-template>

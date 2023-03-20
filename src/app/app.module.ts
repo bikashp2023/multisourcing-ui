@@ -8,11 +8,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { SidePanelComponent } from './components/side-panel/side-panel.component';
-import { SidenavComponent } from './pages/sidenav/sidenav.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
-  declarations: [AppComponent, SidePanelComponent, SidenavComponent],
+  declarations: [AppComponent, SidePanelComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
