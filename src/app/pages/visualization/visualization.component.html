@@ -1,1 +1,23 @@
-<h1>Visualization</h1>
+<!-- <app-donut-chart></app-donut-chart> -->
+
+<div class="container">
+  <!-- <app-header></app-header> -->
+  <ktd-grid [cols]="cols" [rowHeight]="rowHeight" [gap]="20" [layout]="layout" (layoutUpdated)="onLayoutUpdated($event)"
+    (gridItemResize)="onResize($event)" (dragStarted)="resizeEnded($event)" (resizeEnded)="resizeEnded($event)">
+    <ktd-grid-item *ngFor="let item of layout; trackBy:trackById" [id]="item.id">
+      <!-- Your grid item content goes here -->
+      <div class="item">
+        <ng-template [ngComponentOutlet]="item.component"></ng-template>
+      </div>
+      <!-- Optional Custom placeholder template -->
+      <ng-template ktdGridItemPlaceholder>
+        <!-- Custom placeholder content goes here -->
+      </ng-template>
+    </ktd-grid-item>
+  </ktd-grid>
+</div>
+
+<ng-template #navContent>
+  <!-- <app-side-nav-content></app-side-nav-content> -->
+  <!-- <h1>bikash</h1> -->
+</ng-template>
