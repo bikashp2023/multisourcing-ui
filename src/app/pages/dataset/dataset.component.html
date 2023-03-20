@@ -1,0 +1,28 @@
+<mat-drawer-container>
+    <mat-drawer position="end" #sidenavEnd>
+        <ng-container *ngTemplateOutlet="customContent; context: { selectedSource: selectedSource }"></ng-container>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="container">
+            <h3>Create a Dataset</h3>
+            <div class="source__container">
+                <ng-container *ngFor="let source of sourceDatasets">
+                    <div class="card" (click)="openDrawer(source)">
+                        <div class="card__left">
+                            <img [alt]="source.viewText" [src]="'../../../assets/images/' + source.type + '.png'"
+                                width="46px" height="46px">
+                        </div>
+                        <div class="card__right">{{source.viewText}}</div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
+<ng-template #customContent let-selectedSource="selectedSource">
+    <ng-container [ngSwitch]="selectedSource">
+        <app-graphql *ngSwitchCase="'graphql'"></app-graphql>
+        <app-uploadfile *ngSwitchCase="'uploadfile'"></app-uploadfile>
+        <div *ngSwitchDefault>No content for selected source</div>
+    </ng-container>
+</ng-template>

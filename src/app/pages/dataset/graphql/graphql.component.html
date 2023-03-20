@@ -1,0 +1,52 @@
+<div class="header"> Add GraphQL Connector</div>
+<div class="container">
+  <form [formGroup]="graphqlForm" class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Connector Name</mat-label>
+      <input formControlName="connectionName" matInput placeholder="Type the name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Authentication</mat-label>
+      <mat-select formControlName="authType" (selectionChange)="selectionChange($event)">
+        <mat-option *ngFor="let auth of authWays" [value]="auth.value">
+          {{auth.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <fieldset *ngIf="selectedAuth==='Basic Authentication'">
+      <legend>Basic Authentication</legend>
+      <mat-form-field class="example-full-width">
+        <mat-label>username</mat-label>
+        <input matInput formControlName="userName" type="text">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>password</mat-label>
+        <input matInput type="text" formControlName="password">
+      </mat-form-field>
+    </fieldset>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Add GraphQL Endpoint</mat-label>
+      <input matInput placeholder="URL" formControlName="url">
+    </mat-form-field>
+    <div *ngIf="showSpinner" class="connection__check">
+      <mat-spinner  [diameter]="30"></mat-spinner> 
+      <span> Checking for your authentication.</span>
+    </div>
+    <div *ngIf="showSuccess" class="connection__check color_green">
+      <mat-icon>check_circle</mat-icon>
+      <span> Configuration test successful.</span>
+    </div>
+    <div *ngIf="showFailure" class="connection__check color_red">
+      <mat-icon>error</mat-icon>
+      <span> Something went wrong. Please check your configuration and try again</span>
+    </div>
+    <div class="form-element">
+      <button (click)="submitForm()" mat-raised-button color="primary" type="submit" class="button">Submit</button>
+      <button (click)="testConnection()" mat-raised-button type="submit" class="button">Test Connection</button>
+    </div>
+  </form>
+</div>

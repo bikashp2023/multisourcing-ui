@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 0 2rem;
+}
+.example-form {
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  font-size: 16px;
+  margin: 1rem;
+}
+
+.form-element {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+fieldset {
+    border: 1px solid rgb(212, 210, 210);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+button {
+    margin-left: 1rem;
+}
+
+.connection__check {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    span {
+        margin-left: 1rem;
+    }
+    margin-bottom: 2rem;
+    mat-icon, mat-spinner {
+        margin-left: 1rem;
+    }
+}
+
+.color_green {
+    color: #26bc6a;
+    background: #E2FFEF;
+}
+
+.color_red {
+    color: #FF5656;
+    background:#FFEEEE;
+}

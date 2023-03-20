@@ -1,0 +1,21 @@
+.mat-sidenav {
+    width: 20rem;
+}
+.nav__item_text {
+    margin-left: 1rem;
+}
+
+.main__container {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}   
+
+mat-sidenav-container {
+    flex: 1;
+}
+
+main {
+    height: 100%;
+}
