@@ -3,19 +3,20 @@ import { CommonModule } from '@angular/common';
 import { VisualizationComponent } from './visualization.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from 'src/app/material.module';
-
-
+import { DonutChartComponent } from 'src/app/components/donut-chart/donut-chart.component';
+import { NgxEchartsModule } from 'ngx-echarts';
+import { KtdGridModule } from '@katoid/angular-grid-layout';
 
 @NgModule({
-  declarations: [
-    VisualizationComponent
-  ],
+  declarations: [VisualizationComponent, DonutChartComponent],
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule.forChild([
-      { path: '', component: VisualizationComponent}
-    ])
-  ]
+    KtdGridModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'),
+    }),
+    RouterModule.forChild([{ path: '', component: VisualizationComponent }]),
+  ],
 })
-export class VisualizationModule { }
+export class VisualizationModule {}

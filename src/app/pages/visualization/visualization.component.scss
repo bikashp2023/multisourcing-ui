@@ -1,12 +1,26 @@
-mat-sidenav-container, mat-sidenav, mat-sidenav-content {
-    height: 100%;
+mat-sidenav-container,
+mat-sidenav,
+mat-sidenav-content {
+  height: 100%;
 }
 
 .mat-sidenav {
-    width: 20rem;
+  width: 20rem;
 }
 
 .container {
-    margin: 0 2rem;
-    height: 100%;
+  margin: 0 2rem;
+  height: 100%;
+}
+
+ktd-grid-item {
+  box-shadow: 2px 2px 2px 2px rgb(153, 152, 152);
+}
+
+.container {
+  width: 100vw;
+}
+
+.item {
+  margin: 3rem;
 }
